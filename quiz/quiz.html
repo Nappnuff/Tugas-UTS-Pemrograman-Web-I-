@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body onload="NextQuestion(0)">
+    <!-- Navbar -->
+    <nav class="hidden sm:flex  fixed top-[-35px] left-0 w-full  z-50">
+        <div class="container mx-auto flex justify-center items-center gap-10 py-5 ">
+            <a class="text-red-700 font-bold " href="#"><img src="logo/logo kelompok 9.png" class="h-30 w-auto" alt=""></a>
+            <div class="space-x-6 font-semibold bg-gray-600/10 backdrop-blur-sm border-1 border-white/10 text-white rounded-full shadow-2xl py-2 px-3">
+                <a class="inline-block transition duration-300 ease-in-out transform hover:scale-130 hover:shadow-lg hover:bg-white hover:text-black rounded-2xl px-2 py-1"
+                    href="../index.html" rel="noopener noreferrer">Beranda</a>
+                <a class="inline-block transition duration-300 ease-in-out transform hover:scale-130 hover:shadow-lg hover:bg-white hover:text-black rounded-2xl px-2 py-1"
+                    href="../materi/materi.html" rel="noopener noreferrer">Materi</a>
+                <a class="inline-block transition duration-300 ease-in-out transform hover:scale-130 hover:shadow-lg hover:bg-white hover:text-black rounded-2xl px-2 py-1"
+                    href="../quiz/quiz.html" rel="noopener noreferrer">Quiz</a>
+                <a class="inline-block transition duration-300 ease-in-out transform hover:scale-130 hover:shadow-lg hover:bg-white hover:text-black rounded-2xl px-2 py-1"
+                    href="../video/video.html" rel="noopener noreferrer">Video</a>
+                <a class="inline-block transition duration-300 ease-in-out transform hover:scale-130 hover:shadow-lg hover:bg-white hover:text-black rounded-2xl px-2 py-1"
+                    href="../tentang kami/tentang.html" rel="noopener noreferrer">Tentang Kami</a>
+            </div>
+            <div class="space-x-6 font-semibold bg-gray-600/10 backdrop-blur-sm border-1 border-white/10 rounded-full shadow-2xl ">
+                <button
+                    class="p-2 bg-transparent rounded-full transition-all duration-300 ease-in-out text-white transform hover:scale-110 hover:shadow-xl hover:bg-black  hover:text-[rgb(255,242,242)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-moon-stars" viewBox="0 0 16 16">
+                        <path
+                            d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286" />
+                        <path
+                            d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black text-white sm:hidden"> 
+        <div class="container mx-auto flex justify-between items-center py-5 px-6">
+            <a class="text-red-700 font-bold" href="#"><img src="logo/logo kelompok 9.png" class="h-12 w-auto" alt="Logo"></a>
+    
+            <!-- Tombol Hamburger (hanya muncul di layar kecil) -->
+            <button id="hamburger-btn" class="text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 3h14v2H1V3zm0 4h14v2H1V7zm0 4h14v2H1v-2z"/>
+                </svg>
+            </button>
+        </div>
+    
+        <!-- Dropdown menu untuk layar kecil -->
+        <div id="mobile-menu" class="hidden flex flex-col bg-gray-900 text-white w-full py-4 space-y-2 text-center">
+            <a class="block py-2 hover:bg-gray-700" href="../index.html">Beranda</a>
+            <a class="block py-2 hover:bg-gray-700" href="../materi/materi.html">Materi</a>
+            <a class="block py-2 hover:bg-gray-700" href="../quiz/quiz.html">Quiz</a>
+            <a class="block py-2 hover:bg-gray-700" href="../video/video.html">Video</a>
+            <a class="block py-2 hover:bg-gray-700" href="../tentang kami/tentang.html">Tentang Kami</a>
+        </div>
+    </nav>
+    <!-- Navbar end -->
+    <main>
+        <!-- creating a modal for when quiz ends -->
+        <div class="modal-container" id="score-modal">
+          
+            <div class="modal-content-container">
+              
+                <h1>Congratulations, Quiz Completed.</h1>
+              
+                <div class="grade-details">
+                    <p>Attempts : 12</p>
+                    <p>Wrong Answers : <span id="wrong-answers"></span></p>
+                    <p>Right Answers : <span id="right-answers"></span></p>
+                    <p>Grade : <span id="grade-percentage"></span>%</p>
+                    <p ><span id="remarks"></span></p>
+                </div>
+              
+                <div class="modal-button-container">
+                    <button onclick="closeScoreModal()">Continue</button>
+                </div>
+              
+            </div>
+        </div>
+
+        <div class="game-quiz-container">
+          
+            <div class="game-details-container">
+                <h1>Score : <span id="player-score"></span> / 12</h1>
+                <h1> Question : <span id="question-number"></span> / 12</h1>
+            </div>
+
+            <div class="game-question-container">
+                <h1 id="display-question"></h1>
+            </div>
+
+            <div class="game-options-container">
+              
+               <div class="modal-container" id="option-modal">
+                 
+                    <div class="modal-content-container">
+                         <h1>Please Pick An Option</h1>
+                      
+                         <div class="modal-button-container">
+                            <button onclick="closeOptionModal()">Continue</button>
+                        </div>
+                      
+                    </div>
+                 
+               </div>
+              
+                <span>
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label>
+                </span>
+              
+
+                <span>
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+                </span>
+              
+
+                <span>
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
+              
+
+                <span>
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+
+
+            </div>
+
+            <div class="next-button-container">
+                <button onclick="handleNextQuestion()">Next Question</button>
+            </div>
+
+        </div>
+    </main>
+        <!-- pengenalan Jaringan -->
+
+    <!-- footer -->
+        <footer class="bg-black shadow-sm dark:bg-gray-900 flex justify-center items-center">
+            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                <!-- Logo & Menu -->
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-center sm:text-left">
+                    <a href="#" class="flex justify-center sm:justify-start items-center mb-4 sm:mb-0">
+                        <img src="logo/logo kelompok 9.png" class="h-16 sm:h-20" alt="Nasa logo" />
+                    </a>
+                    <ul class="flex flex-col sm:flex-row sm:gap-10 text-sm font-medium text-gray-500 dark:text-gray-400">
+                        <li><a href="../index.html" class="hover:underline py-1 sm:py-0">Beranda</a></li>
+                        <li><a href="../materi/materi.html" class="hover:underline py-1 sm:py-0">Materi</a></li>
+                        <li><a href="../quiz/quiz.html" class="hover:underline py-1 sm:py-0">Quiz</a></li>
+                        <li><a href="../video/video.html" class="hover:underline py-1 sm:py-0">Video</a></li>
+                        <li><a href="../tentang kami/tentang.html" class="hover:underline py-1 sm:py-0">Tentang Kami</a></li>
+                    </ul>
+                </div>
+                <br>
+                <!-- Garis pemisah -->
+                <hr class="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
+                <br>
+                <!-- Copyright -->
+                <span class="block text-sm text-gray-500 text-center dark:text-gray-400">
+                    © 2025 <a href="#" class="hover:underline">Kelompok 9™</a>. All Rights Reserved.
+                </span>
+                <br>
+            </div>
+        </footer>
+        <!-- footer -->
+
+    <script src="javascript/main.js"></script>
+</body>
+</html>

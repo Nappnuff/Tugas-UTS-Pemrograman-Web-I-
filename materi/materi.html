@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body class="bg-black text-white">
+   
+    <!-- Navbar -->
+    <nav class="hidden sm:flex  fixed top-[-35px] left-0 w-full  z-50">
+        <div class="container mx-auto flex justify-center items-center gap-10 py-5 ">
+            <a class="text-red-700 font-bold " href="#"><img src="logo/logo kelompok 9.png" class="h-30 w-auto" alt=""></a>
+            <div class="space-x-6 font-semibold bg-gray-600/10 backdrop-blur-sm border-1 border-white/10 text-white rounded-full shadow-2xl py-2 px-3">
+                <a class="inline-block transition duration-300 ease-in-out transform hover:scale-130 hover:shadow-lg hover:bg-white hover:text-black rounded-2xl px-2 py-1"
+                    href="../index.html" rel="noopener noreferrer">Beranda</a>
+                <a class="inline-block transition duration-300 ease-in-out transform hover:scale-130 hover:shadow-lg hover:bg-white hover:text-black rounded-2xl px-2 py-1"
+                    href="../materi/materi.html" rel="noopener noreferrer">Materi</a>
+                <a class="inline-block transition duration-300 ease-in-out transform hover:scale-130 hover:shadow-lg hover:bg-white hover:text-black rounded-2xl px-2 py-1"
+                    href="../quiz/quiz.html" rel="noopener noreferrer">Quiz</a>
+                <a class="inline-block transition duration-300 ease-in-out transform hover:scale-130 hover:shadow-lg hover:bg-white hover:text-black rounded-2xl px-2 py-1"
+                    href="../video/video.html" rel="noopener noreferrer">Video</a>
+                <a class="inline-block transition duration-300 ease-in-out transform hover:scale-130 hover:shadow-lg hover:bg-white hover:text-black rounded-2xl px-2 py-1"
+                    href="../tentang kami/tentang.html" rel="noopener noreferrer">Tentang Kami</a>
+            </div>
+            <div class="space-x-6 font-semibold bg-gray-600/10 backdrop-blur-sm border-1 border-white/10 rounded-full shadow-2xl ">
+                <button
+                    class="p-2 bg-transparent rounded-full transition-all duration-300 ease-in-out text-white transform hover:scale-110 hover:shadow-xl hover:bg-black  hover:text-[rgb(255,242,242)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-moon-stars" viewBox="0 0 16 16">
+                        <path
+                            d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286" />
+                        <path
+                            d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black text-white sm:hidden"> 
+        <div class="container mx-auto flex justify-between items-center py-5 px-6">
+            <a class="text-red-700 font-bold" href="#"><img src="logo/logo kelompok 9.png" class="h-12 w-auto" alt="Logo"></a>
+    
+            <!-- Tombol Hamburger (hanya muncul di layar kecil) -->
+            <button id="hamburger-btn" class="text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 3h14v2H1V3zm0 4h14v2H1V7zm0 4h14v2H1v-2z"/>
+                </svg>
+            </button>
+        </div>
+    
+        <!-- Dropdown menu untuk layar kecil -->
+        <div id="mobile-menu" class="hidden flex flex-col bg-gray-900 text-white w-full py-4 space-y-2 text-center">
+            <a class="block py-2 hover:bg-gray-700" href="../index.html">Beranda</a>
+            <a class="block py-2 hover:bg-gray-700" href="../materi/materi.html">Materi</a>
+            <a class="block py-2 hover:bg-gray-700" href="../quiz/quiz.html">Quiz</a>
+            <a class="block py-2 hover:bg-gray-700" href="../video/video.html">Video</a>
+            <a class="block py-2 hover:bg-gray-700" href="../tentang kami/tentang.html">Tentang Kami</a>
+        </div>
+    </nav>
+    <!-- Navbar end -->
+   
+   
+    
+
+    <!-- header -->
+    <div class="scroll-container">
+        <div class="zoom-wrapper">
+            <img src="image/gambarjaringan fix.png" alt="Gambar Zoom"class="zoom-image">
+        </div>
+
+        <h1 class="hidden-text text-4xl font-bold">Pengenalan Jaringan</h1>
+    </div>
+    <!-- Header -->
+
+    <!-- pengenalan Jaringan-->
+    
+    <div class="content-section left">
+        <h2 class="text-3xl font-semibold text-justify">Pengertian</h2>
+        <br><hr><br>
+        <p class="text-justify">Jaringan komputer (jaringan) adalah jaringan telekomunikasi yang memungkinkan 
+            antar komputer untuk saling berkomunikasi dengan bertukar data. Tujuan dari 
+            jaringan komputer adalah agar dapat mencapai tujuannya, setiap bagian dari jaringan 
+            komputer dapat meminta dan memberikan layanan (service). Pihak yang 
+            meminta/menerima layanan disebut klien (client) dan yang memberikan/mengirim 
+            layanan disebut peladen (server). Desain ini disebut dengan sistem client-server, dan 
+            digunakan pada hampir seluruh aplikasi jaringan komputer
+            </p>
+    </div>
+    <div class="content-section right">
+        <h2 class="text-3xl font-semibold text-justify">Sejarah Singkat</h2>
+        <br><hr><br>
+        <p class="text-justify">Sejarah jaringan komputer bermula dari lahirnya konsep jaringan komputer pada 
+            tahun 1940-an di Amerika yang digagas oleh sebuah proyek pengembangan komputer 
+            MODEL I di laboratorium Bell dan group riset Universitas Harvard yang dipimpin 
+            profesor Howard Aiken. Pada mulanya proyek tersebut hanyalah ingin memanfaatkan 
+            sebuah perangkat komputer yang harus dipakai bersama. 
+            </p>
+    </div>
+
+    <div class="wrapper">
+        <div class="scroll-container1">
+            <div class="fade-text-container">
+                <h1 id="text" class="fade-text">Jenis Internet</h1>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section left">
+        <h2 class="text-3xl font-semibold text-justify">LAN (Local Area Network)</h2>
+        <br><hr><br>
+        <p class="text-justify"> LAN atau Local Area Network
+            adalah konsep yang 
+            menghubungkan perangkat 
+            jaringan dalam jarak yang 
+            relatif pendek. Biasanya di 
+            gunakan untuk gedung sekolah, 
+            kantor, rumah, dll. Konsep 
+            jaringan LAN ini cenderung 
+            menggunakan konektivitas 
+            tertentu, terutapa Ethernet dan 
+            Token Ring.
+            </p>
+    </div>
+    <div class="content-section right">
+        <h2 class="text-3xl font-semibold text-justify">MAN (Metropolitan Area Network)</h2>
+        <br><hr><br>
+        <p class="text-justify">MAN atau Metropolitan Area 
+            Network adalah konsep yang 
+            menghubungkan perangkat 
+            jaringan dari satu Kota ke Kota 
+            lainnya. Jika penggunaan LAN 
+            sudah tidak memungkinkan 
+            untuk membangun jaringan 
+            maka jaringan MAN akan di 
+            gunakan, karena cangkupannya 
+            lebih besar dari LAN maka 
+            MAN menggunakan perangkat 
+            khusus dan memerluka
+            operator telekomunikasi yang 
+            bertugas sebagai penguhubung 
+            antar jaringan komputer
+            </p>
+    </div>
+    <div class="content-section left">
+        <h2 class="text-3xl font-semibold text-left">WAN (Wide Area Network)</h2>
+        <br><hr><br>
+        <p class="text-justify">WAN atau Wide Area Network
+            adalah konsep yang 
+            menghubungkan perangkat 
+            jaringan komputer yang 
+            mencangkup wilayah super 
+            luas dan menggunalan 
+            peralatan yang super canggih apabila di bandingkan dengan 
+            MAN dan LAN.      
+            </p>
+    </div>
+    <!-- pengenalan Jaringan -->
+
+
+    <!-- Pengenalan Internet -->
+    <div class="wrapper">
+        <div class="scroll-container1">
+            <div class="fade-text-container">
+                <h1 id="text" class="fade-text">Internet</h1>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-container">
+        <div id="bottom-message" class="bottom-text">Pengenalan Internet</div>
+    </div>
+
+    <div class="content-section left">
+        <h2 class="text-3xl font-semibold text-justify"> Pengertian Internet</h2>
+        <br><hr><br>
+        <p class="text-justify">Internet (Inteconnected-Network) merupakan sekumpulan jaringan komputer yang 
+            membentuk jaringan luas (WAN) dan dapat terhubung ke berbagai macam situs atau 
+            website. Internet menyediakan akses untuk layanan di bidang telekomunikasi dan 
+            sumber daya informasi untuk jutaan pemakainya yang tersebar di seluruh Indonesia 
+            bahkan seluruh dunia sehingga bisa saling berbagi informasi.
+            </p>
+    </div>
+    <div class="content-section right flex justify-center items-center flex-col">
+        <img src="https://i.pinimg.com/736x/f2/14/68/f2146840b46cc395210bb0936821349e.jpg" alt="" class="rounded-full">
+        <br>
+        <h2 class="text-3xl font-semibold text-justify">Cara Mengakses Internet</h2>
+        <br><hr><br>
+        <p class="text-justify">Untuk dapat melakukan koneksi ke internet, langkah-langkah yang perlu disiapkan 
+            secara umum sebagai berikut.
+            </p>
+        <div class="text-justify max-w-[500px] mt-6">
+            <p class="list-content">Siapkan seperangkat PC.</p>
+            <p class="list-content">Siapkan Modem (Modulator Demodulator) atau Wireless Router untuk di 
+                konfigurasi.</p>
+            <p class="list-content">Koneksi ke internet melalui penyedia layanan akses internet atau ISP (Internet 
+                Service Provider) yang dihubungkan ke Modem atau Wireless Router.</p>
+        </div>
+        
+    </div>
+    <div class="content-section left">
+        <h2 class="text-3xl font-semibold text-left">Cara Menggunakan Browser</h2>
+        <br><hr><br>
+        <p class="text-justify">Browser adalah aplikasi yang digunakan untuk mengakses internet, seperti Google Chrome, Mozilla Firefox, dan Microsoft Edge. Langkah-langkah dasar menggunakan browser:</p>
+        <p class="list-content mt-6">Buka browser yang tersedia di perangkat.</p>
+        <p class="list-content">Masukkan alamat situs web pada bilah URL, misalnya "www.google.com".</p>
+        <p class="list-content">Gunakan mesin pencari untuk menemukan informasi yang diinginkan.</p>
+        <p class="list-content">Akses situs yang aman dengan memastikan ada protokol "https://" yang menandakan situs tersebut memiliki enkripsi untuk melindungi data.</p>
+        <p class="list-content">Kelola privasi dan keamanan, misalnya dengan menghapus riwayat pencarian atau menggunakan mode incognito jika diperlukan.</p>
+    </div>
+    <!-- Pengenalan Internet -->
+
+
+    <!-- Keamanan Jaringan -->
+    <div class="wrapper">
+        <div class="scroll-container1">
+            <div class="fade-text-container">
+                <h1 id="text" class="fade-text">Keamanan Jaringan</h1>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-container">
+        <div id="bottom-message" class="bottom-text">Pengenalan Keamanan Jaringan</div>
+    </div>
+
+    <div id="container" class="container mx-auto flex flex-col items-center text-center p-4 mt-20 mb-50">
+        <div class="w-full max-w-[600px] space-y-10">
+            <div class="p-6 rounded-lg shadow-lg hidden-keamanan">
+                <h2 class="text-4xl font-semibold">Pengertian</h2>
+                <p class="text-justify text-lg  mt-10">Keamanan jaringan adalah praktik untuk melindungi infrastruktur jaringan dari berbagai ancaman, baik internal maupun eksternal. Tujuan utama dari keamanan jaringan adalah memastikan kerahasiaan (confidentiality), integritas (integrity), dan ketersediaan (availability) data dan layanan jaringan.</p>
+            </div>
+        </div>
+        <div id="container" class="container mx-auto flex flex-col items-center text-center mt-30 px-4">
+            <h1 class="text-3xl font-bold mb-10">Cara Melindungi Jaringan dari Serangan</h1>
+            <div class="w-full max-w-[1000px] grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <div class="bg-white p-6 rounded-lg shadow-lg hidden-keamanan">
+        
+                    <p class="highlight">Batasi akses jaringan hanya untuk pengguna berwenang.</p>
+                    <p class="highlight">Pisahkan sumber daya internal dan eksternal untuk keamanan.</p>
+                    <p class="highlight">Gunakan kata sandi kuat dan autentikasi dua faktor (2FA).</p>
+                    <p class="highlight">Enkripsi data untuk mencegah penyadapan.</p>
+                    <p class="highlight">Gunakan IDS/IPS untuk mendeteksi dan mencegah ancaman.</p>
+                    <p class="highlight">IDS mendeteksi ancaman, IPS langsung memblokirnya.</p>
+                    <p class="highlight">VPN mengenkripsi komunikasi untuk meningkatkan privasi.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hidden-keamanan">
+                    <p class="highlight">VPN memastikan komunikasi data tetap aman.</p>
+                    <p class="highlight">Terapkan kebijakan firewall dan kontrol akses.</p>
+                    <p class="highlight">Lakukan audit keamanan secara rutin.</p>
+                    <p class="highlight">Gunakan perangkat lunak keamanan terbaru.</p>
+                    <p class="highlight">Selalu perbarui sistem dan aplikasi.</p>
+                    <p class="highlight">Edukasi pengguna tentang ancaman siber.</p>
+                    <p class="highlight">Siapkan cadangan data untuk menghindari kehilangan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Keamanan Jaringan -->
+    
+    
+
+
+
+      <!-- footer -->
+    <footer class="bg-black shadow-sm dark:bg-gray-900 flex justify-center items-center">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <!-- Logo & Menu -->
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-center sm:text-left">
+                <a href="#" class="flex justify-center sm:justify-start items-center mb-4 sm:mb-0">
+                    <img src="logo/logo kelompok 9.png" class="h-16 sm:h-20" alt="Nasa logo" />
+                </a>
+                <ul class="flex flex-col sm:flex-row sm:gap-10 text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <li><a href="../index.html" class="hover:underline py-1 sm:py-0">Beranda</a></li>
+                    <li><a href="../materi/materi.html" class="hover:underline py-1 sm:py-0">Materi</a></li>
+                    <li><a href="../quiz/quiz.html" class="hover:underline py-1 sm:py-0">Quiz</a></li>
+                    <li><a href="../video/video.html" class="hover:underline py-1 sm:py-0">Video</a></li>
+                    <li><a href="../tentang kami/tentang.html" class="hover:underline py-1 sm:py-0">Tentang Kami</a></li>
+                </ul>
+            </div>
+            <br>
+            <!-- Garis pemisah -->
+            <hr class="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
+            <br>
+            <!-- Copyright -->
+            <span class="block text-sm text-gray-500 text-center dark:text-gray-400">
+                © 2025 <a href="#" class="hover:underline">Kelompok 9™</a>. All Rights Reserved.
+            </span>
+            <br>
+        </div>
+    </footer>
+    <!-- end footer -->
+
+
+    <script src="javascript/main.js"></script>
+</body>
+</html>

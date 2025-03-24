@@ -1,0 +1,32 @@
+.image-container {
+  position: relative;
+  width: 300px; /* Sesuaikan lebar */
+  height: 500px; /* Sesuaikan tinggi */
+}
+
+.image-container img {
+  position: absolute;
+  width: 500px; /* Atur ukuran */
+  height: 600px;
+}
+
+/* Menggeser gambar agar saling tumpang tindih */
+.img-1 { left: -250px; top: 0; }
+.img-2 { left: -100px; top: 0; }
+.img-3 { left: 90px; top: 0; }
+.img-4 { left: 250px; top: 0; }
+
+#popup img {
+  height: 300px;
+  width: 230px;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.blink {
+  animation: blink 0.5s infinite;
+}
